@@ -286,8 +286,6 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState(0);
   const [activeTool, setActiveTool] = useState("interfaces");
   const [expandedExperience, setExpandedExperience] = useState(0);
-  const activeProjectData = projects[activeProject];
-  const activeToolData = toolGroups.find((group) => group.id === activeTool) ?? toolGroups[0];
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -295,29 +293,52 @@ export default function Home() {
     <main>
       <div className="noise" aria-hidden="true" />
       <header className="site-header">
-        <a className="brand" href="#top" onClick={closeMenu} aria-label="Sara Zoarob home"><span className="brand-mark">SZ</span><span>Sara Zoarob</span></a>
+        <a className="brand" href="#top" onClick={closeMenu} aria-label="Sara Zoarob home">
+          <span className="brand-mark">SZ</span>
+          <span>Sara Zoarob</span>
+        </a>
         <nav id="main-navigation" className={`main-nav ${menuOpen ? "is-open" : ""}`} aria-label="Main navigation">
           <a href="#work" onClick={closeMenu}>Work <span>01</span></a>
           <a href="#approach" onClick={closeMenu}>Approach <span>02</span></a>
           <a href="#experience" onClick={closeMenu}>Experience <span>03</span></a>
           <a href="#contact" onClick={closeMenu}>Contact <span>04</span></a>
         </nav>
-        <a className="header-contact" href="mailto:sara.zoarob@gmail.com">Available for select work <span>↗</span></a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-controls="main-navigation" aria-expanded={menuOpen}><span className="menu-toggle-label">{menuOpen ? "Close" : "Menu"}</span>{menuOpen ? <X size={18} /> : <Menu size={18} />}</button>
+        <a className="header-contact" href="mailto:sara.zoarob@gmail.com">
+          Available for select work <span>↗</span>
+        </a>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-controls="main-navigation" aria-expanded={menuOpen}>
+          <span className="menu-toggle-label">{menuOpen ? "Close" : "Menu"}</span>
+          {menuOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
       </header>
 
       <section className="hero section-pad" id="top">
         <div className="hero-grid">
           <Reveal className="hero-copy">
-            <p className="eyebrow"><span className="eyebrow-dot" /> Full Stack Software Engineer <i>—</i> Frontend Focused</p>
-            <h1>I build interfaces that feel <em>simple,</em> <span>even when the systems behind them aren't.</span></h1>
+            <p className="eyebrow">
+              <span className="eyebrow-dot" /> Full Stack Software Engineer <i>—</i> Frontend Focused
+            </p>
+            <h1>I build interfaces that feel <em>simple,</em> <span>even when the systems behind them aren&apos;t.</span></h1>
             <p className="hero-summary">I work across the stack to turn complex product requirements into clear, durable, and genuinely useful digital experiences.</p>
-            <div className="hero-ctas"><MagneticLink href="#work">View my work</MagneticLink><MagneticLink href="#contact" secondary>Let's talk</MagneticLink></div>
-            <div className="hero-stack"><span>React</span><i>·</i><span>TypeScript</span><i>·</i><span>Next.js</span><i>·</i><span>Node.js</span></div>
+            <div className="hero-ctas">
+              <MagneticLink href="#work">View my work</MagneticLink>
+              <MagneticLink href="#contact" secondary>Let&apos;s talk</MagneticLink>
+            </div>
+            <div className="hero-stack">
+              <span>React</span><i>·</i>
+              <span>TypeScript</span><i>·</i>
+              <span>Next.js</span><i>·</i>
+              <span>Node.js</span>
+            </div>
           </Reveal>
-          <Reveal className="hero-visual-wrap" delay={0.15}><ArchitectureMap /></Reveal>
+          <Reveal className="hero-visual-wrap" delay={0.15}>
+            <ArchitectureMap />
+          </Reveal>
         </div>
-        <div className="scroll-cue"><span>Scroll to explore</span><ArrowDownRight size={17} /></div>
+        <div className="scroll-cue">
+          <span>Scroll to explore</span>
+          <ArrowDownRight size={17} />
+        </div>
       </section>
     </main>
   );
